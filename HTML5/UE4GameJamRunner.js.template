@@ -10,3 +10,19 @@ if(e.type == СVKWebAppShowOrderBoxResultТ) {
    console.log(e.data.status);
 }});
 
+function getUserInfo() {
+  VKBridge.send("VKWebAppGetUserInfo", {})
+    .then(data => console.log(data))
+    .catch(error => console.log(error));
+}
+
+function subscribeToEvents() {
+  VKBridge.subscribe(e => {
+    if (e.detail.type === 'VKWebAppViewHide') {
+      console.log('ѕользователь закрыл окно приложени€');
+    }
+  });
+}
+
+getUserInfo();
+subscribeToEvents();
