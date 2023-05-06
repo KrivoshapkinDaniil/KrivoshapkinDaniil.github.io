@@ -1,0 +1,12 @@
+import bridge from '@vkontakte/vk-bridge';
+
+bridge.send(“VKWebAppInit", {});
+
+// Îòïðàâêà ñîáûòèÿ
+bridge.send("VKWebAppShowOrderBox", {type:"item", item:"item_id_123"});
+ // Ïîäïèñêà íà ñîáûòèå-ðåçóëüòàò
+bridge.subscribe((e) => {
+if(e.type == ‘VKWebAppShowOrderBoxResult’) {
+   console.log(e.data.status);
+}});
+
