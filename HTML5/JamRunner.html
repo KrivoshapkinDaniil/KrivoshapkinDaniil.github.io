@@ -13,8 +13,9 @@
 	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 
 	<script>
-
         console.log("Start Program");
+		
+		vkBridge.send("VKWebAppInit");
 
 		function getUserInfo() {
 			vkBridge.send("VKWebAppGetUserInfo", {})
@@ -58,5 +59,13 @@
 				<div class="texthalf text-normal jumbotron " id="logwindow" style='display:none'></div>
 
 				<script src="JamRunner.UE4.js"></script>
+				    <button onclick="myFunction()">Добавить в избранное!</button>
+
+				<script>
+				  function myFunction() {
+					console.log("Add to favourite");
+					vkBridge.send("VKWebAppAddToFavorites");
+				  }
+				</script>
 	</body>
 </html>
