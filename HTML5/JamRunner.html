@@ -15,7 +15,9 @@
 	<script>
 		function getUserInfo() {
 			VKBridge.send("VKWebAppGetUserInfo", {})
-				.then(data => console.log(data))
+				.then(data => {
+					console.log(`ID игрока: ${data.id}`);
+				})
 				.catch(error => console.log(error));
 		}
 
@@ -29,10 +31,10 @@
 
 		getUserInfo();
 		subscribeToEvents();
+	</script>
 
-</head >
+</head>
 			<body>
-
 				<div class="wrapper" id="mainarea">
 					<div class="alert alert-warning centered-axis-xy" style="min-height: 20px; display:none;" role="alert" id="compilingmessage">
 						<div id='loadTasks'> </div>
