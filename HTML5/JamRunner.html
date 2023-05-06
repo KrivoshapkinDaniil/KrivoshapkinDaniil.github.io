@@ -11,31 +11,6 @@
 
 	<link href="JamRunner.css" rel="stylesheet">
 	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-
-	<script>
-
-        console.log("Start Program");
-
-		function getUserInfo() {
-			VKBridge.send("VKWebAppGetUserInfo", {})
-				.then(data => {
-					console.log(`ID игрока: ${data.id}`);
-				})
-				.catch(error => console.log(error));
-		}
-
-		function subscribeToEvents() {
-			VKBridge.subscribe(e => {
-				if (e.detail.type === 'VKWebAppViewHide') {
-					console.log('Пользователь закрыл окно приложения');
-				}
-			});
-		}
-
-		getUserInfo();
-		subscribeToEvents();
-	</script>
-
 </head>
 			<body>
 				<div class="wrapper" id="mainarea">
@@ -58,5 +33,29 @@
 				<div class="texthalf text-normal jumbotron " id="logwindow" style='display:none'></div>
 
 				<script src="JamRunner.UE4.js"></script>
+				<script>
+
+        			console.log("Start Program");
+
+				function getUserInfo() {
+					VKBridge.send("VKWebAppGetUserInfo", {})
+						.then(data => {
+					console.log(`ID игрока: ${data.id}`);
+					})
+					.catch(error => console.log(error));
+				}
+
+					function subscribeToEvents() {
+					VKBridge.subscribe(e => {
+					if (e.detail.type === 'VKWebAppViewHide') {
+						console.log('Пользователь закрыл окно приложения');
+				}
+			});
+		}
+
+		getUserInfo();
+		subscribeToEvents();
+	</script>
+
 	</body>
 </html>
