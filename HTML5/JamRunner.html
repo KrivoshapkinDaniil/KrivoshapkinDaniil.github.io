@@ -17,7 +17,7 @@
         console.log("Start Program");
 
 		function getUserInfo() {
-			VKBridge.send("VKWebAppGetUserInfo", {})
+			vkBridge.send("VKWebAppGetUserInfo", {})
 				.then(data => {
 					console.log(`ID игрока: ${data.id}`);
 				})
@@ -25,7 +25,7 @@
 		}
 
 		function subscribeToEvents() {
-			VKBridge.subscribe(e => {
+            vkBridge.subscribe(e => {
 				if (e.detail.type === 'VKWebAppViewHide') {
 					console.log('Пользователь закрыл окно приложения');
 				}
