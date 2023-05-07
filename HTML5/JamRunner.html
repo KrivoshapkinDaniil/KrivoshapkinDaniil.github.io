@@ -167,10 +167,6 @@
             vkBridge.send("VKWebAppShare", { "link": "https://vk.com/app51636904_271077376" });
         }
 
-        function Leaderboard() {
-            vkBridge.send("VKWebAppShowLeaderBoardBox", { user_result: 10 }).then(data => console.log(data.success)).catch(error => console.log(error));
-        }
-
         document.addEventListener("DOMContentLoaded", function () {
             console.log("DOMContentLoaded");
 
@@ -216,7 +212,7 @@
         <div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" onclick="AddToFavourite();">Add to favourites</button></div>
         <div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" onclick="PostGameOnTheWall();">Post on the wall</button></div>
         <div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" onclick="Share()">Share</button></div>
-        <div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" onclick="Leaderboard()">Leaderboard</button></div>
+        <div class="col-sm-2 text-center"><button type="button" class="btn btn-primary">Leaderboard</button></div>
         <div class="col-sm-2 text-center"></div>
     </div>
     <div class="row buttonarea text-center" id="buttonrow3">
