@@ -68,11 +68,8 @@
                 script.src = "JamRunner.UE4.js";
                 document.body.appendChild(script);
                 document.getElementById("play-button").style.display = "none";
-                var container = document.getElementById("buttonrow2");
-                var but = document.getElementById("buttonrow2");
-                container.style.width = "100%";
-                container.style.textAlign = "center";
-                but.style.display = "inline-block";
+                document.getElementById("fullscreen_request").style.position = "relative";
+                document.getElementById("fullscreen_request").style.left = "-200px";
             });
 
             document.getElementById("fullscreen_request").addEventListener("click", function () {
