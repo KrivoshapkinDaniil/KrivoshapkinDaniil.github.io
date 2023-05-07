@@ -50,6 +50,12 @@
 			console.log("Click share button");
 			vkBridge.send("VKWebAppShare", {"link": "https://vk.com/app51636904_271077376"});
 		}
+		
+		function Leaderboard() {
+			vkBridge.send("VKWebAppShowLeaderBoardBox", {user_result:10})
+			 .then(data => console.log(data.success))
+			.catch(error => console.log(error));
+		}
 
 		document.addEventListener("DOMContentLoaded", function() {
 			console.log("DOMContentLoaded");
@@ -58,9 +64,12 @@
 			subscribeToEvents();
 
 			document.getElementById("play-button").addEventListener("click", function() {
-				// hide all other buttons
+				// hide the play button
+				document.getElementById("play-button").style.display = "none";
+				 // show the pause and resume buttons
+				document.getElementById("pausebutton").style.display = "inline-block";
+				document.getElementById("resumebutton").style.display = "inline-block";
 				document.getElementById("buttonrow2").style.display = "none";
-				document.getElementById("")
 				// start the game script
 				var script = document.createElement("script");
 				script.src = "JamRunner.UE4.js";
@@ -85,8 +94,8 @@
 	<div class="row buttonarea text-center" id="buttonrow">
 		<div class="col-sm-2 text-center"></div>
 		<div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" style="display:none;"></button></div>
-		<div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" onclick="try { Module['pauseMainLoop'](); } catch(e) {console.error(e);}">Pause</button></div>
-		<div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" onclick="try { Module['resumeMainLoop'](); } catch(e) {console.error(e);}">Resume</button></div>
+		<div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" id="pausebutton" style="display:none;" onclick="try { Module['pauseMainLoop'](); } catch(e) {console.error(e);}">Pause</button></div>
+		<div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" id="resumebutton" style="display:none;" onclick="try { Module['resumeMainLoop'](); } catch(e) {console.error(e);}">Resume</button></div>
 		<div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" style="display:none;"></button></div>
 		<div class="col-sm-2 text-center"></div>
 	</div>
@@ -95,7 +104,7 @@
 		<div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" onclick="AddToFavourite();">Add to favourites</button></div>
 		<div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" onclick="PostGameOnTheWall();">Post on the wall</button></div>
 		<div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" onclick="Share()">Share</button></div>
-		<div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" id='fullscreen_request'>Enable fullscreen</button></div>
+		<div class="col-sm-2 text-center"><button type="button" class="btn btn-primary" onclick="Leaderboard()">Leaderboard</button></div>
 		<div class="col-sm-2 text-center"></div>
 	</div>
 	<div class="row buttonarea text-center" id="buttonrow3">

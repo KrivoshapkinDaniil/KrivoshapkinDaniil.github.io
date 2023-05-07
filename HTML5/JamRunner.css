@@ -101,7 +101,7 @@ html, body, .container {
 	border-bottom: 0px;
 	padding: 0px;
 	margin-right: 0px;
-	margin-top: 0px;
+	margin-top: 10px;
 	margin-bottom: 0px;
  }
 
@@ -117,11 +117,13 @@ html, body, .container {
 
 #play-button {
   background-color: transparent;
-  transform: scale(0.25);
+  transform: scale(0.5);
   border: 0px solid rgba(255, 255, 255, 1);
   position: relative;
-  top: -50px;
+  top: -250px;
 }
+
+
 
 
 
