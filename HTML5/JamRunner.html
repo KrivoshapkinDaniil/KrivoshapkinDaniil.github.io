@@ -45,6 +45,11 @@
 				"attachments": "https://vk.com/app51636904_271077376"
 			});
 		}
+		
+		function Share() {
+			console.log("Click share button");
+			vkBridge.send("VKWebAppShare", {"link": "https://vk.com/app51636904_271077376"});
+		}
 
 		document.addEventListener("DOMContentLoaded", function() {
 			console.log("DOMContentLoaded");
@@ -96,13 +101,5 @@
 	<div class="row buttonarea text-center" id="buttonrow3">
 		<div class="col-sm-12 text-center"><button type="button" class="btn btn-primary" id="play-button"><img src="https://icon-library.com/images/play-png-icon/play-png-icon-12.jpg" alt="Кнопка «button»"></button></div>
 	</div>
-
-	<script>
-		function Share() {
-			console.log("Click share button");
-			bridge.send("VKWebAppShare", {"link": "https://vk.com/app51636904_271077376"});
-		}
-	</script>
-
 </body>
 </html>
